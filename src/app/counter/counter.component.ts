@@ -5,14 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './counter.component.html',
 })
 export class CounterComponent {
-  contador: number = 0;
+  contador: number = 23;
 
   handleCount(value: number) {
     //value ++
     this.contador = value;
   }
 
-  handleDis(value: number){
+  handleDis(value: number) {
     this.contador = value;
   }
 }

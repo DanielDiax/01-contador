@@ -8,10 +8,11 @@ describe('ButtonAddComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonAddComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonAddComponent],
+    }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(ButtonAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +20,19 @@ describe('ButtonAddComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('debe emitir el valor de 2', () => {
+    let nuevoContador = 0;
+
+    component.onAdd.subscribe((contador) => {
+      nuevoContador = contador;
+    });
+
+    // Se llama dos veces para simular dos veces el clic en la función y que se cuente el numero
+    component.add();
+    component.add();
+
+    expect(nuevoContador).toBe(2);
   });
 });

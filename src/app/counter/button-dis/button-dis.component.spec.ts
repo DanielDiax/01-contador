@@ -8,9 +8,8 @@ describe('ButtonDisComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonDisComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonDisComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonDisComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,18 @@ describe('ButtonDisComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Debe inicializar el contador en: -2', () => {
+    let nuevoContador = 0;
+
+    component.onDis.subscribe((contador) => {
+      nuevoContador = contador;
+    });
+
+    component.dis();
+    component.dis();
+
+    expect(nuevoContador).toBe(-2);
   });
 });
