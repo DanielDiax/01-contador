@@ -1,0 +1,7 @@
+button{
+    background-color: aquamarine;
+}
+
+button:hover{
+    background-color: rgb(8, 220, 149);
+}
